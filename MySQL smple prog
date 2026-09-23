@@ -1,0 +1,27 @@
+-- 1. Create a new database named 'CompanyDB'
+CREATE DATABASE IF NOT EXISTS CompanyDB;
+USE CompanyDB;
+
+-- 2. Create a simple table for employees
+CREATE TABLE IF NOT EXISTS Employees (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    department VARCHAR(50),
+    salary DECIMAL(10, 2)
+);
+
+-- 3. Insert sample data into the table
+INSERT INTO Employees (name, department, salary) VALUES
+('Alice Johnson', 'HR', 55000.00),
+('Bob Smith', 'IT', 75000.00),
+('Charlie Brown', 'IT', 82000.00),
+('Diana Prince', 'Marketing', 61000.00);
+
+-- 4. Query the data
+-- View all records
+SELECT * FROM Employees;
+
+-- View only employees in the IT department making more than 70,000
+SELECT name, salary 
+FROM Employees 
+WHERE department = 'IT' AND salary > 70000.00;
